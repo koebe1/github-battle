@@ -173,6 +173,10 @@ a {
 }
 
 .battle-instructions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
   padding: 0;
   font-size: 25px;
 }
@@ -199,8 +203,11 @@ a {
 
 .player {
   flex: 1;
+  width: 25vw;
+  max-width: 400px;
   margin: 0 20px;
   padding: 10px;
+  color: #f3f3f3;
 }
 .player-label {
   color: #f3f3f3;
@@ -237,7 +244,8 @@ a {
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  max-width: 200px;
+  max-width: 100px;
+  min-width: 80px;
 }
 .btn:disabled {
   background: #f2f2f2;
@@ -247,4 +255,49 @@ a {
 .dark-button {
   color: #e6e6e6;
   background: #141414;
+}
+
+.players-container {
+  margin: 50px 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+h1.center-text.header-lg {
+  color: #f3f3f3;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.avatar-small {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+}
+
+.player-info {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  font-size: 20px;
+  padding: 10px;
+}
+
+.player-info .link {
+  margin-left: 10px;
+}
+
+.cross {
+  cursor: pointer;
+}
+@media (max-width: 900px) {
+  div.row.space-around {
+    flex-direction: column;
+  }
 }
