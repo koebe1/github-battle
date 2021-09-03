@@ -7,6 +7,7 @@ import {
   FaCodeBranch,
   FaExclamationTriangle
 } from "react-icons/fa";
+import Card from "./card";
 
 function LanguagesNav({ selected, onUpdateLanguage }) {
   const languages = ["All", "JavaScript", "Ruby", "Java", "CSS", "Python "];
@@ -47,19 +48,13 @@ function ReposGrid({ repos }) {
         const { login, avatar_url } = owner;
 
         return (
-          <a href={html_url} target="_blank">
-            <li className="card bg-light" key={html_url}>
-              <h2 className="header-lg center-text">{index + 1}</h2>
-              <img
-                className="avatar"
-                src={avatar_url}
-                alt={`Avatar for ${login}`}
-              />
-              <h2 className="center-text ">
-                <a className="link" href={html_url} target="_blank">
-                  {login}
-                </a>
-              </h2>
+          <li key={html_url}>
+            <Card
+              header={`${index + 1}`}
+              avatar={avatar_url}
+              href={html_url}
+              name={login}
+            >
               <ul className="card-list">
                 <li>
                   <FaUser color="rgb(255,191,116" size={22} />
@@ -80,8 +75,8 @@ function ReposGrid({ repos }) {
                   {open_issues.toLocaleString()} open issues
                 </li>
               </ul>
-            </li>
-          </a>
+            </Card>
+          </li>
         );
       })}
     </ul>

@@ -84,7 +84,8 @@ li {
 .header-lg  {
   font-size: 35px;
   font-weight: 300;
-  margin: 20px;
+
+  margin-bottom: 50px;
 }
 
 .header-sm {
