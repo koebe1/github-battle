@@ -68,7 +68,7 @@ function sortPlayers(players) {
 }
 
 export function battle(players) {
-  return Promise.all([getUserData([0]), getUserData(players[1])]).then(
+  return Promise.all([getUserData(players[0]), getUserData(players[1])]).then(
     results => sortPlayers(results)
   );
 }

@@ -19,6 +19,9 @@ ul {
 li {
   list-style: none;
 }
+.text-light {
+  color: #f3f3f3;
+}
 .container {
   display: flex;
   flex-direction: column;
@@ -143,21 +146,21 @@ h2.header-lg.center-text {
   border-radius: 25px;
 }
 
-.repo {
+.card {
   margin: 10px 0;
   width: 260px;
   padding: 20px;
   transition: 0.2s ease;
 }
 
-.repo:hover {
+.card:hover {
   transform: scale(1.05);
 }
 a {
   text-decoration: none;
 }
 
-.repo img {
+.card img {
   margin-bottom: 10px;
 }
 
@@ -302,6 +305,12 @@ h1.center-text.header-lg {
 }
 pre {
   color: #f3f3f3;
+}
+
+.error {
+  color: #c2392a;
+  font-size: 20px;
+  margin: 50px 0;
 }
 @media (max-width: 900px) {
   div.row.space-around {
