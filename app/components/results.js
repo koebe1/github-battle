@@ -1,6 +1,13 @@
 import React from "react";
-
+import { battle } from "./utils/api";
 export default class Results extends React.Component {
+  // lifecycle method to fetch the data once  the component gets created
+  componentDidMount() {
+    const { playerOne, playerTwo } = this.props;
+    battle([playerOne, playerTwo]).then(players => {
+      console.log(players);
+    });
+  }
   render() {
     return (
       <div>
