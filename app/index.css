@@ -260,6 +260,10 @@ a {
   color: #e6e6e6;
   background: #141414;
 }
+.btn-light {
+  color: #000;
+  background: #f3f3f3;
+}
 
 .players-container {
   margin: 50px 0;

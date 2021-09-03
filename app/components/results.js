@@ -46,8 +46,6 @@ ProfileList.propTypes = {
   profile: PropTypes.object.isRequired
 };
 
-
-
 export default class Results extends React.Component {
   constructor(props) {
     super(props);
@@ -90,27 +88,41 @@ export default class Results extends React.Component {
     }
 
     return (
-      <div className="grid space-around container-sm">
-        <Card
-          header={winner.score === loser.score ? "Tie" : "Winner"}
-          subheader={`Score ${winner.score.toLocaleString()}`}
-          avatar={winner.profile.avatar_url}
-          href={winner.profile.html_url}
-          name={winner.profile.login}
-        >
-          <ProfileList profile={winner.profile} />
-        </Card>
+      <React.Fragment>
+        <div className="grid space-around container-sm">
+          <Card
+            header={winner.score === loser.score ? "Tie" : "Winner"}
+            subheader={`Score ${winner.score.toLocaleString()}`}
+            avatar={winner.profile.avatar_url}
+            href={winner.profile.html_url}
+            name={winner.profile.login}
+          >
+            <ProfileList profile={winner.profile} />
+          </Card>
 
-        <Card
-          header={loser.score === winner.score ? "Tie" : "Loser"}
-          subheader={`Score ${loser.score.toLocaleString()}`}
-          avatar={loser.profile.avatar_url}
-          href={loser.profile.html_url}
-          name={loser.profile.login}
+          <Card
+            header={loser.score === winner.score ? "Tie" : "Loser"}
+            subheader={`Score ${loser.score.toLocaleString()}`}
+            avatar={loser.profile.avatar_url}
+            href={loser.profile.html_url}
+            name={loser.profile.login}
+          >
+            <ProfileList profile={loser.profile} />
+          </Card>
+        </div>
+        <button
+          className="btn btn-light btn-space"
+          onClick={this.props.onReset}
         >
-          <ProfileList profile={loser.profile} />
-        </Card>
-      </div>
+          Reset
+        </button>
+      </React.Fragment>
     );
   }
 }
+
+Results.proTypes = {
+  playerOne: PropTypes.string.isRequired,
+  playerTwo: PropTypes.string.isRequired,
+  onReset: PropTypes.func.isRequired
+};
