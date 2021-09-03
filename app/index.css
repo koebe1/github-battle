@@ -296,6 +296,13 @@ h1.center-text.header-lg {
 .cross {
   cursor: pointer;
 }
+
+.btn-space {
+  margin: 40px auto;
+}
+pre {
+  color: #f3f3f3;
+}
 @media (max-width: 900px) {
   div.row.space-around {
     flex-direction: column;
