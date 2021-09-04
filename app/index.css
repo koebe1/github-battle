@@ -136,7 +136,14 @@ h2.header-lg.center-text {
   align-items: center;
   margin: 10px;
 }
-
+.card-list-li {
+  background: linear-gradient(to right, #d04660 0%, #c75865 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: flex;
+  align-items: center;
+}
 .card-list svg {
   margin-right: 10px;
 }
@@ -321,6 +328,9 @@ pre {
   font-size: 20px;
   margin: 50px 0;
 }
+/* .tool-text {
+  -webkit-text-fill-color: black;
+} */
 @media (max-width: 900px) {
   div.row.space-around {
     flex-direction: column;
