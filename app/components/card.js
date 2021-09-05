@@ -15,11 +15,11 @@ export default function Card({
       {({ theme }) => (
         <div className={`card bg-${theme}`}>
           <a href={href} target="_blank">
-            <h3 className="header-lg center-text text-light">{header}</h3>
+            <h3 className={`header-lg center-text text-${theme}`}>{header}</h3>
             <img className="avatar" src={avatar} alt={`Avatar for ${name}`} />
             {/* if subheader exists -> render it */}
             {subheader && (
-              <h4 className="center-text text-light">{subheader}</h4>
+              <h4 className={`center-text text-${theme}`}>{subheader}</h4>
             )}
             <h2 className="center-text">
               <a href={href} target="_blank" className="link">

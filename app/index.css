@@ -9,7 +9,6 @@ body,
 body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans,
     Ubuntu, Cantarell, Helvetica Neue, sans-serif;
-  /* background: #000; */
 }
 
 ul {
@@ -32,6 +31,14 @@ li {
 .light {
   color: #000;
   background: #fff;
+}
+
+.text-dark {
+  color: #f3f3f3;
+}
+
+.text-light {
+  color: #000;
 }
 .container {
   display: flex;
@@ -107,9 +114,6 @@ li {
   font-size: 28px;
   font-weight: 300;
   margin: 10px;
-}
-h2.header-lg.center-text {
-  color: #f3f3f3;
 }
 
 .avatar {
@@ -240,13 +244,13 @@ a {
   color: #f3f3f3;
 }
 .player-label {
-  color: #f3f3f3;
   font-size: 20px;
   margin: 5px 0;
   font-weight: 300;
 }
 
 .player-inputs input {
+  outline: none;
   padding: 8px;
   font-size: 16px;
   flex: 2;
@@ -259,8 +263,9 @@ a {
   background: #f3f3f3;
 }
 .player-inputs .input-light {
-  color: #dadada;
-  background: rgba(0, 0, 0, 0.3);
+  color: #000;
+  background: rgba(0, 0, 0, 0.07);
+  border: 1px solid rgba(0, 0, 0, 0.25);
 }
 
 .player-inputs button {
@@ -272,7 +277,7 @@ a {
   padding: 10px;
   text-decoration: none;
   letter-spacing: 0.15em;
-  border-radius: 7px;
+  border-radius: 10px;
   font-size: 16px;
   display: flex;
   justify-content: center;
@@ -281,22 +286,24 @@ a {
   max-width: 100px;
   min-width: 80px;
 }
-.dark-btn:disabled {
+.btn-dark:disabled {
   background: #f2f2f2;
   color: #c7c7c7;
 }
-.light-btn:disabled {
-  background: #292929;
-  color: #4a4a4a;
+.btn-light:disabled {
+  background: #f2f2f2;
+  color: #c7c7c7;
 }
 
 .btn-light {
-  color: #e6e6e6;
-  background: #141414;
+  color: #000;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.3);
 }
 .btn-dark {
   color: #000;
-  background: #f3f3f3;
+  background: rgb(255, 255, 255);
+  border: 1px solid #ffffff;
 }
 
 .players-container {
@@ -306,9 +313,6 @@ a {
   flex-direction: column;
   justify-content: center;
   align-content: center;
-}
-h1.center-text.header-lg {
-  color: #f3f3f3;
 }
 
 .form-container {
@@ -341,9 +345,6 @@ h1.center-text.header-lg {
 
 .btn-space {
   margin: 40px auto;
-}
-pre {
-  color: #f3f3f3;
 }
 
 .error {

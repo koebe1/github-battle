@@ -10,23 +10,30 @@ import {
 import Card from "./card";
 import Loading from "./loading";
 import Tooltip from "./tooltip";
+import { ThemeConsumer } from "../context/theme";
 
 function LanguagesNav({ selected, onUpdateLanguage }) {
   const languages = ["All", "JavaScript", "Ruby", "Java", "CSS", "Python "];
   return (
-    <ul className="flex-center">
-      {languages.map(l => (
-        <li key={l}>
-          <button
-            className="btn-clear nav-link"
-            style={l === selected ? { color: "#EB965A" } : { color: "#F3F3F3" }}
-            onClick={() => onUpdateLanguage(l)}
-          >
-            {l}
-          </button>
-        </li>
-      ))}
-    </ul>
+    <ThemeConsumer>
+      {({ theme }) => (
+        <ul className="flex-center">
+          {languages.map(l => (
+            <li key={l}>
+              <button
+                className={`btn-clear nav-link text-${theme}`}
+                style={
+                  l === selected ? { color: "#EB965A" } : {}
+                }
+                onClick={() => onUpdateLanguage(l)}
+              >
+                {l}
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
+    </ThemeConsumer>
   );
 }
 
@@ -59,11 +66,11 @@ function ReposGrid({ repos }) {
             >
               <ul className="card-list">
                 <li>
-                <Tooltip text="Github username">
-                  <FaUser color="rgb(255,191,116" size={22} />
-                  <a href={`https://github.com/${login}`} target="_blank">
-                    {login}{" "}
-                  </a>
+                  <Tooltip text="Github username">
+                    <FaUser color="rgb(255,191,116" size={22} />
+                    <a href={`https://github.com/${login}`} target="_blank">
+                      {login}{" "}
+                    </a>
                   </Tooltip>
                 </li>
                 <li>

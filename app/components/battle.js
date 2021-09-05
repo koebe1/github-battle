@@ -11,10 +11,14 @@ function Instructions() {
     <ThemeConsumer>
       {({ theme }) => (
         <div className="instructions-container">
-          <h1 className="center-text header-lg">Instructions</h1>
+          <h1 className={`center-text header-lg text-${theme}`}>
+            Instructions
+          </h1>
           <ol className="container-sm grid center-text battle-instructions">
             <li>
-              <h3 className="header-sm">Enter two Github users</h3>
+              <h3 className={`header-sm text-${theme}`}>
+                Enter two Github users
+              </h3>
               <FaUserFriends
                 className={`bg-${theme}`}
                 color="#rgb(255,191,116)"
@@ -22,7 +26,7 @@ function Instructions() {
               />
             </li>
             <li>
-              <h3 className="header-sm">Battle</h3>
+              <h3 className={`header-sm text-${theme}`}>Battle</h3>
               <RiSwordFill
                 className={`bg-${theme}`}
                 color="#727272"
@@ -30,7 +34,7 @@ function Instructions() {
               />
             </li>
             <li>
-              <h3 className="header-sm">See the winner</h3>
+              <h3 className={`header-sm text-${theme}`}>See the winner</h3>
               <FaTrophy
                 className={`bg-${theme}`}
                 color="rgb(255,215,0)"
@@ -69,7 +73,7 @@ class PlayerInput extends React.Component {
       <ThemeConsumer>
         {({ theme }) => (
           <form className="column player" onSubmit={this.handleSubmit}>
-            <label htmlFor="username" className="player-label">
+            <label htmlFor="username" className={`player-label text-${theme}`}>
               {this.props.label}
             </label>
             <div className="row player-inputs">
@@ -189,54 +193,58 @@ export default class Battle extends React.Component {
       );
     }
     return (
-      <React.Fragment>
-        <Instructions />
+      <ThemeConsumer>
+        {({ theme }) => (
+          <React.Fragment>
+            <Instructions />
 
-        <div className="players-container">
-          <h1 className="center-text header-lg">Players</h1>
-          <div className="form-container row space-around">
-            {/* player 1 */}
+            <div className="players-container">
+              <h1 className="center-text header-lg">Players</h1>
+              <div className="form-container row space-around">
+                {/* player 1 */}
 
-            {playerOne === null ? (
-              <PlayerInput
-                onSubmit={player => this.handleSubmit("playerOne", player)}
-                label="Player One"
-              />
-            ) : (
-              <PlayerPreview
-                username={playerOne}
-                label="Player One"
-                onReset={() => this.handleReset("playerOne")}
-              />
-            )}
-            {/* player 2 */}
-            {playerTwo === null ? (
-              <PlayerInput
-                onSubmit={player => this.handleSubmit("playerTwo", player)}
-                label="Player Two"
-              />
-            ) : (
-              <PlayerPreview
-                username={playerTwo}
-                label="Player Two"
-                onReset={() => this.handleReset("playerTwo")}
-              />
-            )}
-          </div>
-          {playerOne && playerTwo && (
-            <button
-              className="btn dark-btn btn-space"
-              onClick={() =>
-                this.setState({
-                  battle: true
-                })
-              }
-            >
-              Battle
-            </button>
-          )}
-        </div>
-      </React.Fragment>
+                {playerOne === null ? (
+                  <PlayerInput
+                    onSubmit={player => this.handleSubmit("playerOne", player)}
+                    label="Player One"
+                  />
+                ) : (
+                  <PlayerPreview
+                    username={playerOne}
+                    label="Player One"
+                    onReset={() => this.handleReset("playerOne")}
+                  />
+                )}
+                {/* player 2 */}
+                {playerTwo === null ? (
+                  <PlayerInput
+                    onSubmit={player => this.handleSubmit("playerTwo", player)}
+                    label="Player Two"
+                  />
+                ) : (
+                  <PlayerPreview
+                    username={playerTwo}
+                    label="Player Two"
+                    onReset={() => this.handleReset("playerTwo")}
+                  />
+                )}
+              </div>
+              {playerOne && playerTwo && (
+                <button
+                  className={`btn btn-${theme} btn-space`}
+                  onClick={() =>
+                    this.setState({
+                      battle: true
+                    })
+                  }
+                >
+                  Battle
+                </button>
+              )}
+            </div>
+          </React.Fragment>
+        )}
+      </ThemeConsumer>
     );
   }
 }
