@@ -159,8 +159,8 @@ h2.header-lg.center-text {
 }
 
 .card {
-  margin: 10px 0;
-  width: 260px;
+  margin: 10px 10px;
+  width: 270px;
   padding: 20px;
   transition: 0.2s ease;
 }
