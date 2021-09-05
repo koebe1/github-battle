@@ -9,7 +9,7 @@ body,
 body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans,
     Ubuntu, Cantarell, Helvetica Neue, sans-serif;
-  background: #000;
+  /* background: #000; */
 }
 
 ul {
@@ -22,6 +22,17 @@ li {
 .text-light {
   color: #f3f3f3;
 }
+/* themes for dark and light mode */
+.dark {
+  color: #f3f3f3;
+  background: #000;
+  min-height: 100%;
+}
+
+.light {
+  color: #000;
+  background: #fff;
+}
 .container {
   display: flex;
   flex-direction: column;
@@ -29,7 +40,7 @@ li {
   align-items: center;
   /* max-width: 1200px; */
   padding: 50px;
-  background: #000000;
+  /* background: #000000; */
 }
 
 .flex-center {
@@ -153,8 +164,12 @@ h2.header-lg.center-text {
   color: inherit;
 }
 
-.bg-light {
+.bg-dark {
   background: linear-gradient(to bottom right, #111516 0%, #1c2026 100%);
+  border-radius: 25px;
+}
+.bg-light {
+  background: linear-gradient(to bottom right, #e9e9e9 0%, #f6f6f6 100%);
   border-radius: 25px;
 }
 
@@ -240,8 +255,12 @@ a {
   /* box-shadow: inset 0 1px 2px rgba(0,0,0,0.15) */
 }
 
-.player-inputs .input-light {
+.player-inputs .input-dark {
   background: #f3f3f3;
+}
+.player-inputs .input-light {
+  color: #dadada;
+  background: rgba(0, 0, 0, 0.3);
 }
 
 .player-inputs button {
@@ -262,16 +281,20 @@ a {
   max-width: 100px;
   min-width: 80px;
 }
-.btn:disabled {
+.dark-btn:disabled {
   background: #f2f2f2;
   color: #c7c7c7;
 }
+.light-btn:disabled {
+  background: #292929;
+  color: #4a4a4a;
+}
 
-.dark-button {
+.btn-light {
   color: #e6e6e6;
   background: #141414;
 }
-.btn-light {
+.btn-dark {
   color: #000;
   background: #f3f3f3;
 }
