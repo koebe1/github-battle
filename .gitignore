@@ -1,3 +1,4 @@
 node_modules
+app/**/ressources
 .DS_store
 dist

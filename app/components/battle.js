@@ -2,7 +2,6 @@ import React from "react";
 import { FaUserFriends, FaTrophy, FaTimesCircle } from "react-icons/fa";
 import { RiSwordFill } from "react-icons/ri";
 import PropTypes from "prop-types";
-import Results from "./results";
 import { ThemeConsumer } from "../context/theme";
 import { Link } from "react-router-dom";
 
@@ -150,19 +149,19 @@ export default class Battle extends React.Component {
   state = {
     playerOne: null,
     playerTwo: null
-  }
+  };
 
   handleSubmit = (id, player) => {
     this.setState({
       [id]: player
     });
-  }
+  };
 
-  handleReset = (id) =>  {
+  handleReset = id => {
     this.setState({
       [id]: null
     });
-  }
+  };
 
   render() {
     const { playerOne, playerTwo } = this.state;

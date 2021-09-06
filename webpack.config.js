@@ -14,10 +14,11 @@ module.exports = {
       { test: /\.css$/, use: ["style-loader", "css-loader"] }
     ]
   },
-  mode: "development",
+  mode: process.env.NODE_ENV === "production" ? "production" : "development",
   plugins: [
     new HtmlWebpackPlugin({
-      template: "app/index.html"
+      template: "app/index.html",
+      favicon: "./app/assets/favicon/favicon-32x32.png"
     })
   ],
   devServer: {

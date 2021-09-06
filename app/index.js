@@ -1,12 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import Popular from "./components/popular";
-import Battle from "./components/battle";
-import Results from "./components/results";
 import { ThemeProvider } from "./context/theme";
 import Nav from "./components/nav";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Loading from "./components/loading";
+
+// dynamic imports for code splitting
+const Popular = React.lazy(() => import("./components/popular"));
+const Battle = React.lazy(() => import("./components/battle"));
+const Results = React.lazy(() => import("./components/results"));
 
 class App extends React.Component {
   state = {
@@ -26,13 +29,15 @@ class App extends React.Component {
             <div className="container">
               <Nav />
 
-              <Switch>
-                <Route exact path="/" component={Popular} />
-                <Route exact path="/battle" component={Battle} />
-                <Route exact path="/battle/results" component={Results} />
-                {/* Renders if no of the other paths matches  */}
-                <Route render={() => <h1>404</h1>} />
-              </Switch>
+              <React.Suspense fallback={<div className="loader" />}>
+                <Switch>
+                  <Route exact path="/" component={Popular} />
+                  <Route exact path="/battle" component={Battle} />
+                  <Route exact path="/battle/results" component={Results} />
+                  {/* Renders if no of the other paths matches  */}
+                  <Route render={() => <h1>404</h1>} />
+                </Switch>
+              </React.Suspense>
             </div>
           </div>
         </ThemeProvider>
