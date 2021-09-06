@@ -56,16 +56,13 @@ ProfileList.propTypes = {
 };
 
 export default class Results extends React.Component {
-  constructor(props) {
-    super(props);
+  state = {
+    winner: null,
+    loser: null,
+    error: null,
+    loading: true
+  };
 
-    this.state = {
-      winner: null,
-      loser: null,
-      error: null,
-      loading: true
-    };
-  }
   // lifecycle method to fetch the data once  the component gets created
   componentDidMount() {
     // debugger;

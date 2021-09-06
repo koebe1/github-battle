@@ -2,13 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 
 export default class Loading extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      loaderCount: 0
-    };
+  state = {
+    loaderCount: 0
   }
+
+  
   componentDidMount() {
     this.interval = setInterval(() => {
       this.state.loaderCount === 5
