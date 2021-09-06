@@ -13,7 +13,7 @@ import Tooltip from "./tooltip";
 import { ThemeConsumer } from "../context/theme";
 
 function LanguagesNav({ selected, onUpdateLanguage }) {
-  const languages = ["All", "JavaScript", "Ruby", "Java", "CSS", "Python "];
+  const languages = ["All", "JavaScript", "Python", "C", "Java", "CSS"];
   return (
     <ThemeConsumer>
       {({ theme }) => (

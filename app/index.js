@@ -6,7 +6,7 @@ import Battle from "./components/battle";
 import Results from "./components/results";
 import { ThemeProvider } from "./context/theme";
 import Nav from "./components/nav";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 class App extends React.Component {
   constructor(props) {
@@ -29,9 +29,14 @@ class App extends React.Component {
           <div className={this.state.theme}>
             <div className="container">
               <Nav />
-              <Route exact path="/" component={Popular} />
-              <Route exact path="/battle" component={Battle} />
-              <Route exact path="/battle/results" component={Results} />
+
+              <Switch>
+                <Route exact path="/" component={Popular} />
+                <Route exact path="/battle" component={Battle} />
+                <Route exact path="/battle/results" component={Results} />
+                {/* Renders if no of the other paths matches  */}
+                <Route render={() => <h1>404</h1>} />
+              </Switch>
             </div>
           </div>
         </ThemeProvider>
