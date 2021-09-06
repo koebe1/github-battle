@@ -30,6 +30,7 @@
   "dependencies": {
     "@babel/runtime": "^7.15.3",
     "prop-types": "^15.7.2",
+    "query-string": "^7.0.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-icons": "^4.2.0",

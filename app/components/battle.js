@@ -4,6 +4,7 @@ import { RiSwordFill } from "react-icons/ri";
 import PropTypes from "prop-types";
 import Results from "./results";
 import { ThemeConsumer } from "../context/theme";
+import { Link } from "react-router-dom";
 
 // INSTRUCTIONS
 function Instructions() {
@@ -112,7 +113,7 @@ function PlayerPreview({ username, onReset, label }) {
     <ThemeConsumer>
       {({ theme }) => (
         <div className="column player">
-          <h3 className="player-label">{label}</h3>
+          <h3 className={`player-label text-${theme}`}>{label}</h3>
           <div className={`row bg-${theme}`}>
             <div className="player-info">
               <img
@@ -155,8 +156,7 @@ export default class Battle extends React.Component {
 
     this.state = {
       playerOne: null,
-      playerTwo: null,
-      battle: false
+      playerTwo: null
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleReset = this.handleReset.bind(this);
@@ -175,23 +175,8 @@ export default class Battle extends React.Component {
   }
 
   render() {
-    const { playerOne, playerTwo, battle } = this.state;
+    const { playerOne, playerTwo } = this.state;
 
-    if (battle === true) {
-      return (
-        <Results
-          playerOne={playerOne}
-          playerTwo={playerTwo}
-          onReset={() =>
-            this.setState({
-              playerOne: null,
-              playerTwo: null,
-              battle: false
-            })
-          }
-        />
-      );
-    }
     return (
       <ThemeConsumer>
         {({ theme }) => (
@@ -230,16 +215,15 @@ export default class Battle extends React.Component {
                 )}
               </div>
               {playerOne && playerTwo && (
-                <button
+                <Link
                   className={`btn btn-${theme} btn-space`}
-                  onClick={() =>
-                    this.setState({
-                      battle: true
-                    })
-                  }
+                  to={{
+                    pathname: "/battle/results",
+                    search: `?playerOne=${playerOne}&playerTwo=${playerTwo}`
+                  }}
                 >
                   Battle
-                </button>
+                </Link>
               )}
             </div>
           </React.Fragment>

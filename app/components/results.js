@@ -13,6 +13,8 @@ import PropTypes from "prop-types";
 import Tooltip from "./tooltip";
 import Loading from "./loading";
 import { ThemeConsumer } from "../context/theme";
+import queryString from "query-string";
+import { Link } from "react-router-dom";
 
 function ProfileList({ profile }) {
   return (
@@ -66,7 +68,11 @@ export default class Results extends React.Component {
   }
   // lifecycle method to fetch the data once  the component gets created
   componentDidMount() {
-    const { playerOne, playerTwo } = this.props;
+    // debugger;
+    const { playerOne, playerTwo } = queryString.parse(
+      this.props.location.search
+    );
+
     battle([playerOne, playerTwo])
       .then(players => {
         this.setState({
@@ -121,21 +127,12 @@ export default class Results extends React.Component {
                 <ProfileList profile={loser.profile} />
               </Card>
             </div>
-            <button
-              className={`btn btn-${theme} btn-space`}
-              onClick={this.props.onReset}
-            >
+            <Link className={`btn btn-${theme} btn-space`} to="/battle">
               Reset
-            </button>
+            </Link>
           </React.Fragment>
         )}
       </ThemeConsumer>
     );
   }
 }
-
-Results.proTypes = {
-  playerOne: PropTypes.string.isRequired,
-  playerTwo: PropTypes.string.isRequired,
-  onReset: PropTypes.func.isRequired
-};

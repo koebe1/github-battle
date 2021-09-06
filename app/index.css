@@ -74,6 +74,9 @@ li {
   font-weight: bold;
   text-decoration: none;
 }
+.nav li {
+  margin-right: 10px;
+}
 
 /* custom loading component */
 .loading {
@@ -110,6 +113,9 @@ li {
   justify-content: space-around;
 }
 
+.space-between {
+  justify-content: space-between;
+}
 .header-lg  {
   font-size: 35px;
   font-weight: 300;
@@ -176,7 +182,7 @@ li {
 }
 
 .bg-dark {
-  background: linear-gradient(to bottom right, #111516 0%, #1c2026 100%);
+  background: linear-gradient(to bottom right, #171C1F 0%, #1D2328 100%);
   border-radius: 25px;
 }
 .bg-light {
@@ -241,6 +247,7 @@ a {
 }
 
 .row {
+  width: 100%;
   display: flex;
   flex-direction: row;
 }
