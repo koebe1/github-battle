@@ -10,24 +10,23 @@ export default function Card({
   name,
   children
 }) {
+  const redirect = () => {
+    window.open(href, "_blank");
+  };
+
   return (
     <ThemeConsumer>
       {({ theme }) => (
-        <div className={`card bg-${theme}`}>
-          <a href={href} target="_blank">
-            <h3 className={`header-lg center-text text-${theme}`}>{header}</h3>
-            <img className="avatar" src={avatar} alt={`Avatar for ${name}`} />
-            {/* if subheader exists -> render it */}
-            {subheader && (
-              <h4 className={`center-text text-${theme}`}>{subheader}</h4>
-            )}
-            <h2 className="center-text">
-              <a href={href} target="_blank" className="link">
-                {name}
-              </a>
-            </h2>
-            {children}
-          </a>
+        <div onClick={redirect} className={`card pointer bg-${theme}`}>
+          {/* <a href={href} target="_blank"> */}
+          <h3 className={`header-lg center-text text-${theme}`}>{header}</h3>
+          <img className="avatar" src={avatar} alt={`Avatar for ${name}`} />
+          {/* if subheader exists -> render it */}
+          {subheader && (
+            <h4 className={`center-text text-${theme}`}>{subheader}</h4>
+          )}
+          <h2 className="center-text link">{name}</h2>
+          {children}
         </div>
       )}
     </ThemeConsumer>

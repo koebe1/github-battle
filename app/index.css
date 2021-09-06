@@ -61,6 +61,13 @@ li {
   background: transparent;
 }
 
+.pointer {
+  cursor: pointer;
+}
+.default-cursor {
+  cursor: default;
+}
+
 .nav-link {
   cursor: pointer;
   font-size: 18px;
@@ -186,6 +193,9 @@ li {
 
 .card:hover {
   transform: scale(1.05);
+}
+.card:active {
+  transform: scale(1);
 }
 a {
   text-decoration: none;

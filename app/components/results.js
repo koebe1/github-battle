@@ -22,7 +22,7 @@ function ProfileList({ profile }) {
         {profile.name}
       </li>
       {profile.location && (
-        <li>
+        <li className="default-cursor">
           <Tooltip className="tool-tip" text="User's location">
             <FaCompass color="rgb(144,115,255)" size={22} />
             {profile.location}
@@ -30,18 +30,18 @@ function ProfileList({ profile }) {
         </li>
       )}
       {profile.company && (
-        <li>
+        <li className="default-cursor">
           <Tooltip className="tool-tip" text="User's company">
             <FaBriefcase color="#795548" size={22} />
             {profile.company}
           </Tooltip>
         </li>
       )}
-      <li>
+      <li className="default-cursor">
         <FaUsers color="rgb(129,195,245" size={22} />
         {profile.followers.toLocaleString()}
       </li>
-      <li>
+      <li className="default-cursor">
         <FaUserFriends color="rgb(64,183,95" size={22} />
         {profile.following.toLocaleString()}
       </li>

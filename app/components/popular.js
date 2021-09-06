@@ -22,9 +22,7 @@ function LanguagesNav({ selected, onUpdateLanguage }) {
             <li key={l}>
               <button
                 className={`btn-clear nav-link text-${theme}`}
-                style={
-                  l === selected ? { color: "#EB965A" } : {}
-                }
+                style={l === selected ? { color: "#EB965A" } : {}}
                 onClick={() => onUpdateLanguage(l)}
               >
                 {l}
@@ -55,6 +53,9 @@ function ReposGrid({ repos }) {
           open_issues
         } = repo;
         const { login, avatar_url } = owner;
+        const redirect = () => {
+          window.open(`https://github.com/${login}`, "_blank");
+        };
 
         return (
           <li key={html_url}>
@@ -68,20 +69,18 @@ function ReposGrid({ repos }) {
                 <li>
                   <Tooltip text="Github username">
                     <FaUser color="rgb(255,191,116" size={22} />
-                    <a href={`https://github.com/${login}`} target="_blank">
-                      {login}{" "}
-                    </a>
+                    <span onClick={redirect}>{login}</span>
                   </Tooltip>
                 </li>
-                <li>
+                <li className="default-cursor">
                   <FaStar color="rgb(255,215,0)" size={22} />
                   {stargazers_count.toLocaleString()} stars
                 </li>
-                <li>
+                <li className="default-cursor">
                   <FaCodeBranch color="rgb(129,195,245)" size={22} />
                   {forks.toLocaleString()} forks
                 </li>
-                <li>
+                <li className="default-cursor">
                   <FaExclamationTriangle color="rgb(241,138,147)" size={22} />
                   {open_issues.toLocaleString()} open issues
                 </li>
