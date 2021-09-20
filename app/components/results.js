@@ -101,7 +101,7 @@ export default class Results extends React.Component {
 
     return (
       <ThemeConsumer>
-        {({ theme }) => (
+        {theme => (
           <React.Fragment>
             <div className="grid space-around container-sm">
               <Card

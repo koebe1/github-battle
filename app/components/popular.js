@@ -16,21 +16,15 @@ function LanguagesNav({ selected, onUpdateLanguage }) {
   const languages = ["All", "JavaScript", "Python", "C", "Java", "CSS"];
   return (
     <ThemeConsumer>
-      {theme => (
-        <ul className="flex-center">
-          {languages.map(l => (
-            <li key={l}>
-              <button
-                className={`btn-clear nav-link text-${theme}`}
-                style={l === selected ? { color: "#EB965A" } : {}}
-                onClick={() => onUpdateLanguage(l)}
-              >
-                {l}
-              </button>
-            </li>
-          ))}
-        </ul>
-      )}
+      {theme => {
+        return (<ul className="flex-center">
+          {languages.map(l => (<li key={l}>
+            <button className={`btn-clear nav-link text-${theme}`} style={l === selected ? { color: "#EB965A" } : {}} onClick={() => onUpdateLanguage(l)}>
+              {l}
+            </button>
+          </li>))}
+        </ul>);
+      }}
     </ThemeConsumer>
   );
 }
