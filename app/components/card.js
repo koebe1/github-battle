@@ -16,7 +16,7 @@ export default function Card({
 
   return (
     <ThemeConsumer>
-      {({ theme }) => (
+      {( theme ) => (
         <div onClick={redirect} className={`card pointer bg-${theme}`}>
           {/* <a href={href} target="_blank"> */}
           <h3 className={`header-lg center-text text-${theme}`}>{header}</h3>

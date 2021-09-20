@@ -16,7 +16,7 @@ function LanguagesNav({ selected, onUpdateLanguage }) {
   const languages = ["All", "JavaScript", "Python", "C", "Java", "CSS"];
   return (
     <ThemeConsumer>
-      {({ theme }) => (
+      {theme => (
         <ul className="flex-center">
           {languages.map(l => (
             <li key={l}>

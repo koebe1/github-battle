@@ -2,10 +2,10 @@ import React from "react";
 import { ThemeConsumer } from "../context/theme";
 import { NavLink } from "react-router-dom";
 
-export default function Nav() {
+export default function Nav({ toggleTheme }) {
   return (
     <ThemeConsumer>
-      {({ theme, toggleTheme }) => (
+      {theme => (
         <nav className="row space-between">
           <ul className="row nav">
             <li>
