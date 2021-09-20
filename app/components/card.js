@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
-import { ThemeConsumer } from "../context/theme";
+import ThemeContext from "../context/theme";
 
 export default function Card({
   header,
@@ -14,22 +14,20 @@ export default function Card({
     window.open(href, "_blank");
   };
 
+  const theme = useContext(ThemeContext);
+
   return (
-    <ThemeConsumer>
-      {( theme ) => (
-        <div onClick={redirect} className={`card pointer bg-${theme}`}>
-          {/* <a href={href} target="_blank"> */}
-          <h3 className={`header-lg center-text text-${theme}`}>{header}</h3>
-          <img className="avatar" src={avatar} alt={`Avatar for ${name}`} />
-          {/* if subheader exists -> render it */}
-          {subheader && (
-            <h4 className={`center-text text-${theme}`}>{subheader}</h4>
-          )}
-          <h2 className="center-text link">{name}</h2>
-          {children}
-        </div>
+    <div onClick={redirect} className={`card pointer bg-${theme}`}>
+      {/* <a href={href} target="_blank"> */}
+      <h3 className={`header-lg center-text text-${theme}`}>{header}</h3>
+      <img className="avatar" src={avatar} alt={`Avatar for ${name}`} />
+      {/* if subheader exists -> render it */}
+      {subheader && (
+        <h4 className={`center-text text-${theme}`}>{subheader}</h4>
       )}
-    </ThemeConsumer>
+      <h2 className="center-text link">{name}</h2>
+      {children}
+    </div>
   );
 }
 

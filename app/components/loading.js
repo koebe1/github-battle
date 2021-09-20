@@ -1,45 +1,28 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React, { useState, useEffect, useRef } from "react";
 
-export default class Loading extends React.Component {
-  state = {
-    loaderCount: 0
-  }
+export default function Loading({
+  text = "loading",
+  loaderSign = ".",
+  speed = 300
+}) {
+  const [loaderCount, setLoaderCount] = useState(0);
+  const interval = useRef();
 
-  
-  componentDidMount() {
-    this.interval = setInterval(() => {
-      this.state.loaderCount === 5
-        ? this.setState({
-            loaderCount: 0
-          })
-        : this.setState(({ loaderCount }) => ({
-            loaderCount: loaderCount + 1
-          }));
-    }, 300);
-  }
-  componentWillUnmount() {
-    window.clearInterval(this.interval);
-  }
+  useEffect(() => {
+    interval.current = window.setInterval(() => {
+      loaderCount === 5
+        ? setLoaderCount(0)
+        : setLoaderCount(count => count + 1);
+    }, speed);
 
-  render() {
-    const { text, loaderSign } = this.props;
-    return (
-      <p className="loading">
-        {text}
+    return window.clearInterval(interval.current);
+  }, [loaderCount, text, speed]);
 
-        {loaderSign.repeat(this.state.loaderCount)}
-      </p>
-    );
-  }
+  return (
+    <p className="loading">
+      {text}
+
+      {loaderSign.repeat(loaderCount)}
+    </p>
+  );
 }
-
-Loading.propTypes = {
-  text: PropTypes.string,
-  loaderSign: PropTypes.any
-};
-
-Loading.defaultProps = {
-  text: "loading",
-  loaderSign: "."
-};

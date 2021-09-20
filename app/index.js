@@ -15,6 +15,7 @@ const Results = React.lazy(() => import("./components/results"));
 function App() {
   const [theme, setTheme] = useState("dark");
 
+
   const toggleTheme = () => {
     {
       theme === "dark" ? setTheme("light") : setTheme("dark");
