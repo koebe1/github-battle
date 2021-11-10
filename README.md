@@ -25,7 +25,7 @@
   Additionally the website gives you an overview over the most popular Github repositories ordered by category.
 <br/>
 <br/>
-Note that this project is part of the <a href="https://dev.ui"><strong> dev.ui </strong></a> react course.
+Note that this project is part of the <a href="https://ui.dev/"><strong> dev.ui </strong></a> react course.
   
 
 <br/>
